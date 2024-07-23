@@ -1,6 +1,10 @@
 # Chained AI
 This projects demonstrates how to chain responses from the OpenAI API to a meaningful result.
 
+- [Overview](#overview)
+- [System Requirements](#system-requirements)
+- [How to Run the Code](#how-to-run-the-code)
+
 # Overview
 
 The project will generate an image using OpenAI based on the animals mentioned in the Shakespeare plays Othello and A Winter's Tale. 
