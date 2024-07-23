@@ -9,6 +9,11 @@ The code asks the user to declare a graphic style, and then uses the OpenAI API 
 
 The code will return a URL to the image for viewing.
 
+Here is an example of a generated image:
+
+![generated-image](https://github.com/user-attachments/assets/c8d81746-054d-4a1e-866e-6ab9912b90f5)
+
+
 # System Requirements
 
 The code requires that the user has an OpenAI API key. The key should be stored in a file called `.env` in the root directory of the project. The `.env` file should contain the following line:
