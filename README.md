@@ -11,7 +11,10 @@ The project will generate an image using OpenAI based on the animals mentioned i
 
 The code asks the user to declare a graphic style, and then uses the OpenAI API to generate an image of the animals in that style.
 
-The code will return a URL to the image for viewing.
+The code will return a URL to the image for viewing. The application's workflow is shown in the figure below.
+
+![chain-ai-01](https://github.com/user-attachments/assets/fbbcaeb5-6ff4-449a-ba2a-bd882aaea917)
+
 
 Here is an example of a generated image:
 
