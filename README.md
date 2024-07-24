@@ -16,7 +16,7 @@ The code will return a URL to the image for viewing. The application's workflow 
 ![chain-ai-01](https://github.com/user-attachments/assets/fbbcaeb5-6ff4-449a-ba2a-bd882aaea917)
 
 
-Here is an example of a generated image:
+Here is an example of a generated image rendered in the `science fiction` style:
 
 ![generated-image](https://github.com/user-attachments/assets/c8d81746-054d-4a1e-866e-6ab9912b90f5)
 
