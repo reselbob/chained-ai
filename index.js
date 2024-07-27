@@ -2,8 +2,6 @@ require('dotenv').config();
 const readline = require('readline');
 const OpenAI = require('openai');
 
-// Rest of your application code goes here
-console.log(process.env.API_KEY);
 const imageStyles = ["science fiction", "anime", "fantasy", "abstract", "realism"];
 
 const rl = readline.createInterface({
@@ -16,11 +14,12 @@ async function generateImage(selectedStyle) {
     // process the style selected by the user
     const openai = new OpenAI({apiKey: process.env.API_KEY});
 
-    const query_1 ="Look at the plays Othello and A Winter's Tale that mention animals and give me a list of those animals in JSON format";
+    const query_1 ="Look at the plays Othello and A Winter's Tale" +
+        "that mention animals and give me a list of those animals in JSON format";
 
     // get the animals from the plays
     let response = await openai.chat.completions.create({
-        model: 'gpt-3.5-turbo',
+        model: 'gpt-4-turbo',
         messages: [{"role": "user", "content": query_1}],
         max_tokens: 300
     });
@@ -29,14 +28,16 @@ async function generateImage(selectedStyle) {
 
     //Make the list of animals
     response = await openai.chat.completions.create({
-        model: 'gpt-3.5-turbo',
-        messages: [{"role": "user", "content": query_2 + " " + response.choices[0].message.content}],
+        model: 'gpt-4-turbo',
+        messages: [{"role": "user", "content": query_2 + " "
+                + response.choices[0].message.content}],
         max_tokens: 300
     })
 
     console.log(`The animals are: \n${response.choices[0].message.content}`);
 
-    const imagePrompt = `Make an image in the style of ${selectedStyle} of the following animals: ${response.choices[0].message.content}`;
+    const imagePrompt = `Make an image in the style of ${selectedStyle} of the 
+        following animals: ${response.choices[0].message.content}`;
 
     const imageResponse = await openai.images.generate({
         model: 'dall-e-3',
