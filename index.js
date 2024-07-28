@@ -10,10 +10,18 @@ const rl = readline.createInterface({
 });
 
 
+/***
+ * This function generates an image based on the result of discovering the
+ * animals in the plays Othello and A Winter's Tale.
+ * @param selectedStyle The style of the image to be generated
+ * @returns {Promise<void>} The function writes the URL of the generated
+ *                          image to the console
+ */
 async function generateImage(selectedStyle) {
-    // process the style selected by the user
+    // Create an instance of the OpenAI API
     const openai = new OpenAI({apiKey: process.env.API_KEY});
 
+    // The query to get the animals from the plays
     const query_1 ="Look at the plays Othello and A Winter's Tale" +
         "that mention animals and give me a list of those animals in JSON format";
 
@@ -24,6 +32,7 @@ async function generateImage(selectedStyle) {
         max_tokens: 300
     });
 
+    // The query to make a list of the animals
     const query_2 = "Make list of all the animals in the following JSON object";
 
     //Make the list of animals
@@ -36,6 +45,7 @@ async function generateImage(selectedStyle) {
 
     console.log(`The animals are: \n${response.choices[0].message.content}`);
 
+    // The prompt to generate the image
     const imagePrompt = `Make an image in the style of ${selectedStyle} of the 
         following animals: ${response.choices[0].message.content}`;
 
